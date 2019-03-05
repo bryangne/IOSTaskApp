@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7BECFCEA222E44F7005DEBB5 /* DayTaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BECFCE9222E44F7005DEBB5 /* DayTaskTableViewController.swift */; };
+		7BECFCEC222E4BE4005DEBB5 /* DayTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BECFCEB222E4BE4005DEBB5 /* DayTaskTableViewCell.swift */; };
+		7BECFCEE222E5596005DEBB5 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BECFCED222E5596005DEBB5 /* AddTaskViewController.swift */; };
 		C9242B6F2225FF130028E43D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9242B6E2225FF130028E43D /* AppDelegate.swift */; };
-		C9242B712225FF130028E43D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9242B702225FF130028E43D /* ViewController.swift */; };
 		C9242B742225FF130028E43D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9242B722225FF130028E43D /* Main.storyboard */; };
 		C9242B772225FF130028E43D /* TaskerApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9242B752225FF130028E43D /* TaskerApp.xcdatamodeld */; };
 		C9242B792225FF140028E43D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9242B782225FF140028E43D /* Assets.xcassets */; };
@@ -35,9 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7BECFCE9222E44F7005DEBB5 /* DayTaskTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTaskTableViewController.swift; sourceTree = "<group>"; };
+		7BECFCEB222E4BE4005DEBB5 /* DayTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTaskTableViewCell.swift; sourceTree = "<group>"; };
+		7BECFCED222E5596005DEBB5 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		C9242B6B2225FF130028E43D /* TaskerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9242B6E2225FF130028E43D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C9242B702225FF130028E43D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C9242B732225FF130028E43D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C9242B762225FF130028E43D /* TaskerApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TaskerApp.xcdatamodel; sourceTree = "<group>"; };
 		C9242B782225FF140028E43D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,12 +104,14 @@
 			isa = PBXGroup;
 			children = (
 				C9242B6E2225FF130028E43D /* AppDelegate.swift */,
-				C9242B702225FF130028E43D /* ViewController.swift */,
 				C9242B722225FF130028E43D /* Main.storyboard */,
 				C9242B782225FF140028E43D /* Assets.xcassets */,
 				C9242B7A2225FF140028E43D /* LaunchScreen.storyboard */,
 				C9242B7D2225FF140028E43D /* Info.plist */,
 				C9242B752225FF130028E43D /* TaskerApp.xcdatamodeld */,
+				7BECFCE9222E44F7005DEBB5 /* DayTaskTableViewController.swift */,
+				7BECFCEB222E4BE4005DEBB5 /* DayTaskTableViewCell.swift */,
+				7BECFCED222E5596005DEBB5 /* AddTaskViewController.swift */,
 			);
 			path = TaskerApp;
 			sourceTree = "<group>";
@@ -258,9 +264,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9242B712225FF130028E43D /* ViewController.swift in Sources */,
 				C9242B772225FF130028E43D /* TaskerApp.xcdatamodeld in Sources */,
+				7BECFCEA222E44F7005DEBB5 /* DayTaskTableViewController.swift in Sources */,
 				C9242B6F2225FF130028E43D /* AppDelegate.swift in Sources */,
+				7BECFCEC222E4BE4005DEBB5 /* DayTaskTableViewCell.swift in Sources */,
+				7BECFCEE222E5596005DEBB5 /* AddTaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
