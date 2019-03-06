@@ -10,15 +10,28 @@ import CoreData
 
 class DayTaskTableViewController: UITableViewController {
     
-    var test: [String] = ["one", "two", "three"]
     var tasks: [NSManagedObject] = []
     //MARK: Outlets
     //MARK: Actions
     @IBAction func addTask(_ sender: UIBarButtonItem) {
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    // MARK: My Functions
+    func clearData() {
+        let myDelegate = UIApplication.shared.delegate as? AppDelegate
+        let myContext = myDelegate?.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Task")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try myContext!.execute(deleteRequest)
+        } catch let error as NSError {
+            print(error)
+        }
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         let myDelegate = UIApplication.shared.delegate as? AppDelegate
         let context = myDelegate?.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Task")
@@ -27,6 +40,22 @@ class DayTaskTableViewController: UITableViewController {
         } catch let error as NSError {
             print(error)
         }
+        self.tableView.reloadData()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // self.clearData()
+        /*
+        let myDelegate = UIApplication.shared.delegate as? AppDelegate
+        let context = myDelegate?.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Task")
+        do {
+            tasks = try (context?.fetch(fetchRequest))!
+        } catch let error as NSError {
+            print(error)
+        }
+        */
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
