@@ -17,6 +17,7 @@
 		C9242B7C2225FF140028E43D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9242B7A2225FF140028E43D /* LaunchScreen.storyboard */; };
 		C9242B872225FF140028E43D /* TaskerAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9242B862225FF140028E43D /* TaskerAppTests.swift */; };
 		C9242B922225FF140028E43D /* TaskerAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9242B912225FF140028E43D /* TaskerAppUITests.swift */; };
+		C998DB8C223856A100208F23 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C998DB8B223856A100208F23 /* TaskDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		C9242B8D2225FF140028E43D /* TaskerAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaskerAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9242B912225FF140028E43D /* TaskerAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskerAppUITests.swift; sourceTree = "<group>"; };
 		C9242B932225FF140028E43D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C998DB8B223856A100208F23 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				7BECFCE9222E44F7005DEBB5 /* DayTaskTableViewController.swift */,
 				7BECFCEB222E4BE4005DEBB5 /* DayTaskTableViewCell.swift */,
 				7BECFCED222E5596005DEBB5 /* AddTaskViewController.swift */,
+				C998DB8B223856A100208F23 /* TaskDetailViewController.swift */,
 			);
 			path = TaskerApp;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				C9242B6F2225FF130028E43D /* AppDelegate.swift in Sources */,
 				7BECFCEC222E4BE4005DEBB5 /* DayTaskTableViewCell.swift in Sources */,
 				7BECFCEE222E5596005DEBB5 /* AddTaskViewController.swift in Sources */,
+				C998DB8C223856A100208F23 /* TaskDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

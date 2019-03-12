@@ -30,6 +30,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         } catch let error as NSError {
             print(error)
         }
+        _ = navigationController?.popViewController(animated: true)
     }
     
     

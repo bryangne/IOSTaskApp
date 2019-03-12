@@ -11,6 +11,8 @@ import CoreData
 class DayTaskTableViewController: UITableViewController {
     
     var tasks: [NSManagedObject] = []
+    var selectedTask: NSManagedObject?
+    
     //MARK: Outlets
     //MARK: Actions
     @IBAction func addTask(_ sender: UIBarButtonItem) {
@@ -46,16 +48,6 @@ class DayTaskTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // self.clearData()
-        /*
-        let myDelegate = UIApplication.shared.delegate as? AppDelegate
-        let context = myDelegate?.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Task")
-        do {
-            tasks = try (context?.fetch(fetchRequest))!
-        } catch let error as NSError {
-            print(error)
-        }
-        */
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -119,14 +111,18 @@ class DayTaskTableViewController: UITableViewController {
     }
     */
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
+        if segue.identifier == "showTaskDetail" {
+            let detailVC = segue.destination as! TaskDetailViewController
+            let indexPath = tableView.indexPathForSelectedRow
+            detailVC.myTask = tasks[indexPath!.row]
+        }
         // Pass the selected object to the new view controller.
     }
-    */
 
 }
