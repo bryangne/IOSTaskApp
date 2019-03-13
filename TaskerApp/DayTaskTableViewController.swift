@@ -17,6 +17,9 @@ class DayTaskTableViewController: UITableViewController {
     //MARK: Actions
     @IBAction func addTask(_ sender: UIBarButtonItem) {
     }
+    @IBAction func clearDataButton(_ sender: UIButton) {
+        self.clearData()
+    }
     
     // MARK: My Functions
     func clearData() {

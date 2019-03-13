@@ -10,7 +10,7 @@ import CoreData
 
 class AddTaskViewController: UIViewController, UITextFieldDelegate {
     // MARK: Variables
-    
+    var myDueDate: Date?
     // MARK: Outlets
     @IBOutlet weak var descText: UITextField!
     @IBOutlet weak var detailText: UITextView!
@@ -22,8 +22,10 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         let context = myDelegate.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "Task", in: context)!
         let task = NSManagedObject(entity: entity, insertInto: context)
+        let dueDate = datePicker.date
         task.setValue(descText!.text, forKeyPath: "title")
         task.setValue(detailText!.text, forKeyPath: "details")
+        task.setValue(dueDate, forKey: "duedate")
         task.setValue(0, forKeyPath: "overdue")
         do {
             try context.save()
@@ -32,7 +34,6 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         }
         _ = navigationController?.popViewController(animated: true)
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

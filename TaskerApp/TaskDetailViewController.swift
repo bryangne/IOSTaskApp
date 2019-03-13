@@ -20,9 +20,15 @@ class TaskDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        titleLabel.text = myTask?.value(forKey: "title") as? String
-        detailLabel.text = myTask?.value(forKey: "details") as? String
-        print(myTask?.value(forKey: "duedate"))
+        let myTitle = myTask?.value(forKey: "title") as? String
+        titleLabel.text = myTitle
+        let myDetail = myTask?.value(forKey: "details") as? String
+        detailLabel.text = myDetail
+        let myDate = myTask?.value(forKey: "duedate") as? Date
+        let myDateFormatter = DateFormatter()
+        myDateFormatter.dateFormat = "MMM dd, YYYY"
+        let myDateString = myDateFormatter.string(from: myDate!)
+        dueDateLabel.text = myDateString
     }
     
 

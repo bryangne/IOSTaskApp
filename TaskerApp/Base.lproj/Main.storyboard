@@ -52,6 +52,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="wvM-qR-uOW">
+                        <nil key="title"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MZe-oc-Cep">
+                            <rect key="frame" x="151.5" y="7" width="72" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Clear Data"/>
+                            <connections>
+                                <action selector="clearDataButton:" destination="VtP-D7-y8V" eventType="touchUpInside" id="aGs-zt-7Ta"/>
+                            </connections>
+                        </button>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="afx-Nn-1qM">
                             <connections>
                                 <action selector="addTask:" destination="VtP-D7-y8V" id="5ak-a2-5J8"/>
@@ -180,7 +189,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="7Vb-0G-96M">
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="7Vb-0G-96M">
                                         <rect key="frame" x="0.0" y="313" width="343" height="216"/>
                                         <date key="date" timeIntervalSinceReferenceDate="573538917.32096696">
                                             <!--2019-03-06 04:21:57 +0000-->
