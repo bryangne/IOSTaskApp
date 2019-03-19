@@ -91,23 +91,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Detail" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="c29-Nm-b3V">
-                                        <rect key="frame" x="0.0" y="24" width="343" height="501.5"/>
+                                        <rect key="frame" x="0.0" y="24" width="343" height="547"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                                        </accessibility>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uHW-6B-G8c">
-                                        <rect key="frame" x="0.0" y="525.5" width="343" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGB-1q-MP9">
-                                        <rect key="frame" x="0.0" y="549.5" width="343" height="21.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -122,7 +113,6 @@
                     </view>
                     <connections>
                         <outlet property="detailLabel" destination="c29-Nm-b3V" id="h5U-zM-Olm"/>
-                        <outlet property="dueDateLabel" destination="aGB-1q-MP9" id="nih-eQ-UCf"/>
                         <outlet property="titleLabel" destination="qWf-8g-i6B" id="DXx-qw-gMR"/>
                     </connections>
                 </viewController>
@@ -189,12 +179,9 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="7Vb-0G-96M">
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G03-Ev-tuA">
                                         <rect key="frame" x="0.0" y="313" width="343" height="216"/>
-                                        <date key="date" timeIntervalSinceReferenceDate="573538917.32096696">
-                                            <!--2019-03-06 04:21:57 +0000-->
-                                        </date>
-                                    </datePicker>
+                                    </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yau-pG-sy5">
                                         <rect key="frame" x="0.0" y="529" width="343" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -222,9 +209,9 @@
                         <viewLayoutGuide key="safeArea" id="7hh-gn-lHl"/>
                     </view>
                     <connections>
-                        <outlet property="datePicker" destination="7Vb-0G-96M" id="S4W-Jt-Oai"/>
                         <outlet property="descText" destination="d4p-Mi-7on" id="2yD-ma-45T"/>
                         <outlet property="detailText" destination="zjI-VY-69g" id="9le-KZ-ROa"/>
+                        <outlet property="dueDatePicker" destination="G03-Ev-tuA" id="2fL-kY-zyJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gX3-fe-chB" userLabel="First Responder" sceneMemberID="firstResponder"/>

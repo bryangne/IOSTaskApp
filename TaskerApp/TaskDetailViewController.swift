@@ -12,7 +12,6 @@ class TaskDetailViewController: UIViewController {
     // MARK: Outlets
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UITextView!
-    @IBOutlet weak var dueDateLabel: UILabel!
     
     // MARK: Variables
     var myTask: NSManagedObject?
@@ -20,15 +19,11 @@ class TaskDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        let myDueDate = myTask?.value(forKey: "dueDate") as? String
         let myTitle = myTask?.value(forKey: "title") as? String
         titleLabel.text = myTitle
         let myDetail = myTask?.value(forKey: "details") as? String
         detailLabel.text = myDetail
-        let myDate = myTask?.value(forKey: "duedate") as? Date
-        let myDateFormatter = DateFormatter()
-        myDateFormatter.dateFormat = "MMM dd, YYYY"
-        let myDateString = myDateFormatter.string(from: myDate!)
-        dueDateLabel.text = myDateString
     }
     
 
