@@ -33,7 +33,6 @@ class DayTaskTableViewController: UITableViewController {
         } catch let error as NSError {
             print(error)
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {

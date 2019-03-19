@@ -12,10 +12,21 @@ class TaskDetailViewController: UIViewController {
     // MARK: Outlets
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UITextView!
-    @IBOutlet weak var dueDateLabel: UILabel!
     
     // MARK: Variables
     var myTask: NSManagedObject?
+    
+    // MARK: Actions
+    @IBAction func completedButtonAction(_ sender: UIButton) {
+        let myDelegate = UIApplication.shared.delegate as? AppDelegate
+        let myContext = myDelegate?.persistentContainer.viewContext
+        myContext!.delete(myTask!)
+        do {
+            try myContext?.save()
+        } catch {
+            print("Error! Cant save!")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,11 +35,6 @@ class TaskDetailViewController: UIViewController {
         titleLabel.text = myTitle
         let myDetail = myTask?.value(forKey: "details") as? String
         detailLabel.text = myDetail
-        let myDate = myTask?.value(forKey: "duedate") as? Date
-        let myDateFormatter = DateFormatter()
-        myDateFormatter.dateFormat = "MMM dd, YYYY"
-        let myDateString = myDateFormatter.string(from: myDate!)
-        dueDateLabel.text = myDateString
     }
     
 

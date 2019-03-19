@@ -82,7 +82,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DXc-wo-hBW">
-                                <rect key="frame" x="16" y="80" width="343" height="571"/>
+                                <rect key="frame" x="16" y="36" width="343" height="615"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWf-8g-i6B">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="24"/>
@@ -91,23 +91,20 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Detail" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="c29-Nm-b3V">
-                                        <rect key="frame" x="0.0" y="24" width="343" height="501.5"/>
+                                        <rect key="frame" x="0.0" y="24" width="343" height="511"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uHW-6B-G8c">
-                                        <rect key="frame" x="0.0" y="525.5" width="343" height="24"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E7b-qa-XJh">
+                                        <rect key="frame" x="0.0" y="535" width="343" height="80"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGB-1q-MP9">
-                                        <rect key="frame" x="0.0" y="549.5" width="343" height="21.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <state key="normal" title="Completed"/>
+                                        <connections>
+                                            <action selector="completedButtonAction:" destination="kNR-L5-lyt" eventType="touchUpInside" id="2lP-uI-zd2"/>
+                                            <segue destination="VtP-D7-y8V" kind="show" id="wxh-Za-YXt"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -122,7 +119,6 @@
                     </view>
                     <connections>
                         <outlet property="detailLabel" destination="c29-Nm-b3V" id="h5U-zM-Olm"/>
-                        <outlet property="dueDateLabel" destination="aGB-1q-MP9" id="nih-eQ-UCf"/>
                         <outlet property="titleLabel" destination="qWf-8g-i6B" id="DXx-qw-gMR"/>
                     </connections>
                 </viewController>
@@ -139,7 +135,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="i1g-XV-LP1">
-                                <rect key="frame" x="16" y="80" width="343" height="571"/>
+                                <rect key="frame" x="16" y="36" width="343" height="615"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a Task" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DzB-ED-YBF">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="24"/>
@@ -189,14 +185,11 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="7Vb-0G-96M">
-                                        <rect key="frame" x="0.0" y="313" width="343" height="216"/>
-                                        <date key="date" timeIntervalSinceReferenceDate="573538917.32096696">
-                                            <!--2019-03-06 04:21:57 +0000-->
-                                        </date>
-                                    </datePicker>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="54p-5X-O7e">
+                                        <rect key="frame" x="0.0" y="313" width="343" height="260"/>
+                                    </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yau-pG-sy5">
-                                        <rect key="frame" x="0.0" y="529" width="343" height="42"/>
+                                        <rect key="frame" x="0.0" y="573" width="343" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="Add"/>
                                         <connections>
@@ -222,9 +215,9 @@
                         <viewLayoutGuide key="safeArea" id="7hh-gn-lHl"/>
                     </view>
                     <connections>
-                        <outlet property="datePicker" destination="7Vb-0G-96M" id="S4W-Jt-Oai"/>
                         <outlet property="descText" destination="d4p-Mi-7on" id="2yD-ma-45T"/>
                         <outlet property="detailText" destination="zjI-VY-69g" id="9le-KZ-ROa"/>
+                        <outlet property="dueDatePicker" destination="54p-5X-O7e" id="Aq9-kM-7Xo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gX3-fe-chB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -250,4 +243,7 @@
             <point key="canvasLocation" x="608.79999999999995" y="115.59220389805098"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="wxh-Za-YXt"/>
+    </inferredMetricsTieBreakers>
 </document>
