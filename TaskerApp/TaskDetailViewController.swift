@@ -18,14 +18,16 @@ class TaskDetailViewController: UIViewController {
     
     // MARK: Actions
     @IBAction func completedButtonAction(_ sender: UIButton) {
+        // Set the task to completed
         let myDelegate = UIApplication.shared.delegate as? AppDelegate
         let myContext = myDelegate?.persistentContainer.viewContext
-        myContext!.delete(myTask!)
+        myTask?.setValue(true, forKey: "completed")
         do {
             try myContext?.save()
         } catch {
             print("Error! Cant save!")
         }
+        _ = navigationController?.popViewController(animated: true)
     }
     
     override func viewDidLoad() {

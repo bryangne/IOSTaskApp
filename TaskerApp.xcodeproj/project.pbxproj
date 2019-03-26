@@ -18,6 +18,10 @@
 		C9242B872225FF140028E43D /* TaskerAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9242B862225FF140028E43D /* TaskerAppTests.swift */; };
 		C9242B922225FF140028E43D /* TaskerAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9242B912225FF140028E43D /* TaskerAppUITests.swift */; };
 		C998DB8C223856A100208F23 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C998DB8B223856A100208F23 /* TaskDetailViewController.swift */; };
+		C9A168CC2249886B00AEFCB6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A168CB2249886B00AEFCB6 /* TabBarController.swift */; };
+		C9A168CE22498DF800AEFCB6 /* WeekTaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A168CD22498DF700AEFCB6 /* WeekTaskTableViewController.swift */; };
+		C9A168D02249906E00AEFCB6 /* TaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A168CF2249906E00AEFCB6 /* TaskTableViewController.swift */; };
+		C9A168D22249A11000AEFCB6 /* WeekTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A168D12249A11000AEFCB6 /* WeekTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,10 @@
 		C9242B912225FF140028E43D /* TaskerAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskerAppUITests.swift; sourceTree = "<group>"; };
 		C9242B932225FF140028E43D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C998DB8B223856A100208F23 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
+		C9A168CB2249886B00AEFCB6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		C9A168CD22498DF700AEFCB6 /* WeekTaskTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekTaskTableViewController.swift; sourceTree = "<group>"; };
+		C9A168CF2249906E00AEFCB6 /* TaskTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewController.swift; sourceTree = "<group>"; };
+		C9A168D12249A11000AEFCB6 /* WeekTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,16 +113,18 @@
 		C9242B6D2225FF130028E43D /* TaskerApp */ = {
 			isa = PBXGroup;
 			children = (
+				C9A168D42249A13F00AEFCB6 /* Week */,
+				C9A168D32249A12600AEFCB6 /* Day */,
 				C9242B6E2225FF130028E43D /* AppDelegate.swift */,
 				C9242B722225FF130028E43D /* Main.storyboard */,
+				C9A168CF2249906E00AEFCB6 /* TaskTableViewController.swift */,
 				C9242B782225FF140028E43D /* Assets.xcassets */,
 				C9242B7A2225FF140028E43D /* LaunchScreen.storyboard */,
 				C9242B7D2225FF140028E43D /* Info.plist */,
 				C9242B752225FF130028E43D /* TaskerApp.xcdatamodeld */,
-				7BECFCE9222E44F7005DEBB5 /* DayTaskTableViewController.swift */,
-				7BECFCEB222E4BE4005DEBB5 /* DayTaskTableViewCell.swift */,
 				7BECFCED222E5596005DEBB5 /* AddTaskViewController.swift */,
 				C998DB8B223856A100208F23 /* TaskDetailViewController.swift */,
+				C9A168CB2249886B00AEFCB6 /* TabBarController.swift */,
 			);
 			path = TaskerApp;
 			sourceTree = "<group>";
@@ -135,6 +145,24 @@
 				C9242B932225FF140028E43D /* Info.plist */,
 			);
 			path = TaskerAppUITests;
+			sourceTree = "<group>";
+		};
+		C9A168D32249A12600AEFCB6 /* Day */ = {
+			isa = PBXGroup;
+			children = (
+				7BECFCE9222E44F7005DEBB5 /* DayTaskTableViewController.swift */,
+				7BECFCEB222E4BE4005DEBB5 /* DayTaskTableViewCell.swift */,
+			);
+			path = Day;
+			sourceTree = "<group>";
+		};
+		C9A168D42249A13F00AEFCB6 /* Week */ = {
+			isa = PBXGroup;
+			children = (
+				C9A168CD22498DF700AEFCB6 /* WeekTaskTableViewController.swift */,
+				C9A168D12249A11000AEFCB6 /* WeekTableViewCell.swift */,
+			);
+			path = Week;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,8 +298,12 @@
 				C9242B772225FF130028E43D /* TaskerApp.xcdatamodeld in Sources */,
 				7BECFCEA222E44F7005DEBB5 /* DayTaskTableViewController.swift in Sources */,
 				C9242B6F2225FF130028E43D /* AppDelegate.swift in Sources */,
+				C9A168D22249A11000AEFCB6 /* WeekTableViewCell.swift in Sources */,
 				7BECFCEC222E4BE4005DEBB5 /* DayTaskTableViewCell.swift in Sources */,
+				C9A168CC2249886B00AEFCB6 /* TabBarController.swift in Sources */,
 				7BECFCEE222E5596005DEBB5 /* AddTaskViewController.swift in Sources */,
+				C9A168D02249906E00AEFCB6 /* TaskTableViewController.swift in Sources */,
+				C9A168CE22498DF800AEFCB6 /* WeekTaskTableViewController.swift in Sources */,
 				C998DB8C223856A100208F23 /* TaskDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -27,6 +27,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate, UIPickerView
         task.setValue(detailText!.text, forKeyPath: "details")
         task.setValue(myDueDate, forKey: "due")
         task.setValue(0, forKeyPath: "overdue")
+        task.setValue(false, forKey: "completed")
         do {
             try context.save()
         } catch let error as NSError {
@@ -74,6 +75,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate, UIPickerView
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        self.myDueDate = dueDates[row]
         return dueDates[row]
     }
 

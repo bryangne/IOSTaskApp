@@ -8,75 +8,44 @@
 import UIKit
 import CoreData
 
-class DayTaskTableViewController: UITableViewController {
+class DayTaskTableViewController: TaskTableViewController {
     
-    var tasks: [NSManagedObject] = []
-    var selectedTask: NSManagedObject?
     
-    //MARK: Outlets
     //MARK: Actions
     @IBAction func addTask(_ sender: UIBarButtonItem) {
     }
     @IBAction func clearDataButton(_ sender: UIButton) {
         self.clearData()
     }
-    
-    // MARK: My Functions
-    func clearData() {
-        let myDelegate = UIApplication.shared.delegate as? AppDelegate
-        let myContext = myDelegate?.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Task")
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-        
-        do {
-            try myContext!.execute(deleteRequest)
-        } catch let error as NSError {
-            print(error)
+    @IBAction func printDataButton(_ sender: UIBarButtonItem) {
+        for task in tasks {
+            print(task.value(forKey: "due") as? String)
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        let myDelegate = UIApplication.shared.delegate as? AppDelegate
-        let context = myDelegate?.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Task")
-        do {
-            tasks = try (context?.fetch(fetchRequest))!
-        } catch let error as NSError {
-            print(error)
-        }
-        self.tableView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // self.clearData()
+        // Set what data to show
+        daySelect = "Today"
+        completedSelect = false
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return tasks.count
-    }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! DayTaskTableViewCell
         // Configure the cell...
+        cell.layoutMargins = UIEdgeInsets.zero
         let text = tasks[indexPath.row].value(forKeyPath: "title") as? String
         cell.taskLabel.text = text
         return cell
     }
 
+    // MARK: - Table view data source
 
     /*
     // Override to support conditional editing of the table view.
@@ -117,14 +86,4 @@ class DayTaskTableViewController: UITableViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        if segue.identifier == "showTaskDetail" {
-            let detailVC = segue.destination as! TaskDetailViewController
-            let indexPath = tableView.indexPathForSelectedRow
-            detailVC.myTask = tasks[indexPath!.row]
-        }
-        // Pass the selected object to the new view controller.
-    }
-
 }
