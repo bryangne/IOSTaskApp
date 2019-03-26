@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pmW-Rs-k90">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pmW-Rs-k90">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -111,6 +111,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="taskLabel" destination="nVy-km-xO6" id="fIb-bm-ANE"/>
+                                    <segue destination="kNR-L5-lyt" kind="show" identifier="showTaskDetail" id="yeO-jS-pNB"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -279,7 +280,60 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gX3-fe-chB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3628" y="-264"/>
+            <point key="canvasLocation" x="3628" y="-268"/>
+        </scene>
+        <!--Later Task Table View Controller-->
+        <scene sceneID="WoY-TX-Kh9">
+            <objects>
+                <tableViewController id="2of-Jj-9xf" customClass="LaterTaskTableViewController" customModule="TaskerApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hZd-x1-WFk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="Qnc-Ei-24c" customClass="LaterTableViewCell" customModule="TaskerApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qnc-Ei-24c" id="eBg-B4-0Z7">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lUj-DA-yAa">
+                                            <rect key="frame" x="16" y="8" width="343" height="27.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="lUj-DA-yAa" secondAttribute="trailing" constant="16" id="9gB-bU-vvd"/>
+                                        <constraint firstItem="lUj-DA-yAa" firstAttribute="leading" secondItem="eBg-B4-0Z7" secondAttribute="leading" constant="16" id="I0t-c2-r3L"/>
+                                        <constraint firstItem="lUj-DA-yAa" firstAttribute="top" secondItem="eBg-B4-0Z7" secondAttribute="top" constant="8" id="YHs-ea-5Rr"/>
+                                        <constraint firstAttribute="bottom" secondItem="lUj-DA-yAa" secondAttribute="bottom" constant="8" id="rrI-Sb-05n"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="taskLabel" destination="lUj-DA-yAa" id="VBi-FL-pWd"/>
+                                    <segue destination="kNR-L5-lyt" kind="show" identifier="showTaskDetail" id="pf6-sY-UMH"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="2of-Jj-9xf" id="MIK-oP-uVZ"/>
+                            <outlet property="delegate" destination="2of-Jj-9xf" id="baU-df-BHS"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="4rm-Qv-hVp">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="6w1-Sy-C4f">
+                            <connections>
+                                <segue destination="OLS-dz-kPw" kind="show" id="f8g-qS-sdE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9PD-rU-hsf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2316" y="-620.23988005997012"/>
         </scene>
         <!--Today-->
         <scene sceneID="cjo-dY-tEh">
@@ -306,12 +360,14 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="pmW-Rs-k90" customClass="TabBarController" customModule="TaskerApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hDC-SM-Qoe" customClass="TabBar">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="tPs-hX-oPS" kind="relationship" relationship="viewControllers" id="vV7-2n-sX1"/>
                         <segue destination="UNx-ZL-dSw" kind="relationship" relationship="viewControllers" id="sbs-HC-pCj"/>
+                        <segue destination="9Qy-8Q-eXR" kind="relationship" relationship="viewControllers" id="7OG-ey-bK6"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XCH-Br-90t" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -337,8 +393,28 @@
             </objects>
             <point key="canvasLocation" x="1548" y="871"/>
         </scene>
+        <!--Later-->
+        <scene sceneID="bDf-TZ-INt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9Qy-8Q-eXR" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Later" id="f2q-Ul-UN3"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BDc-G6-Xt1">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2of-Jj-9xf" kind="relationship" relationship="rootViewController" id="nc0-fj-cuS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UFE-de-bIj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1548" y="-620.23988005997012"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4Pb-uN-Gq3"/>
+        <segue reference="f8g-qS-sdE"/>
+        <segue reference="pf6-sY-UMH"/>
     </inferredMetricsTieBreakers>
 </document>

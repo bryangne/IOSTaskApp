@@ -1,51 +1,36 @@
 //
-//  DayTaskTableViewController.swift
+//  LaterTaskTableViewController.swift
 //  TaskerApp
 //
-//  Created by user149270 on 3/4/19.
+//  Created by Mac Pro 2 on 2019-03-26.
 //
 
 import UIKit
-import CoreData
 
-class DayTaskTableViewController: TaskTableViewController {
-    
-    
-    //MARK: Actions
-    @IBAction func addTask(_ sender: UIBarButtonItem) {
-    }
-    @IBAction func clearDataButton(_ sender: UIButton) {
-        self.clearData()
-    }
-    @IBAction func printDataButton(_ sender: UIBarButtonItem) {
-        for task in tasks {
-            print(task.value(forKeyPath: "completed") as? Bool)
-        }
-    }
-    
+class LaterTaskTableViewController: TaskTableViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Set what data to show
-        daySelect = "Today"
+        daySelect = "Later"
         completedSelect = false
-        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-    
+
+    // MARK: - Table view data source
+
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! DayTaskTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! LaterTableViewCell
         // Configure the cell...
         cell.layoutMargins = UIEdgeInsets.zero
         let text = tasks[indexPath.row].value(forKeyPath: "title") as? String
         cell.taskLabel.text = text
         return cell
     }
-
-    // MARK: - Table view data source
 
     /*
     // Override to support conditional editing of the table view.
@@ -82,8 +67,14 @@ class DayTaskTableViewController: TaskTableViewController {
     }
     */
 
-
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }

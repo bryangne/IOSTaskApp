@@ -25,9 +25,9 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate, UIPickerView
         let task = NSManagedObject(entity: entity, insertInto: context)
         task.setValue(descText!.text, forKeyPath: "title")
         task.setValue(detailText!.text, forKeyPath: "details")
-        task.setValue(myDueDate, forKey: "due")
+        task.setValue(myDueDate, forKeyPath: "due")
         task.setValue(0, forKeyPath: "overdue")
-        task.setValue(false, forKey: "completed")
+        task.setValue(false, forKeyPath: "completed")
         do {
             try context.save()
         } catch let error as NSError {

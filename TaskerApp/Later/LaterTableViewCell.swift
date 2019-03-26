@@ -1,14 +1,14 @@
 //
-//  WeekTableViewCell.swift
+//  LaterTableViewCell.swift
 //  TaskerApp
 //
-//  Created by Mac Pro 3 on 2019-03-25.
+//  Created by Mac Pro 2 on 2019-03-26.
 //
 
 import UIKit
 
-class WeekTableViewCell: UITableViewCell {
-
+class LaterTableViewCell: UITableViewCell {
+    // MARK: Outlets
     @IBOutlet weak var taskLabel: UILabel!
     
     override func awakeFromNib() {

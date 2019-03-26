@@ -36,9 +36,8 @@ class TaskTableViewController: UITableViewController {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Task")
         // Fetch the data based on which tab was selected
         let datePredicate = NSPredicate(format: "due == %@", daySelect)
-//        let compPredicate = NSPredicate(format: "completed == %@", completedSelect)
-//        fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [datePredicate, compPredicate])
-        fetchRequest.predicate = datePredicate
+        let compPredicate = NSPredicate(format: "completed == false")
+        fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [datePredicate, compPredicate])
         do {
             tasks = try (context?.fetch(fetchRequest))!
         } catch let error as NSError {
@@ -113,9 +112,9 @@ class TaskTableViewController: UITableViewController {
     // MARK: - Navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destination.
+        let indexPath = tableView.indexPathForSelectedRow
          if segue.identifier == "showTaskDetail" {
              let detailVC = segue.destination as! TaskDetailViewController
-             let indexPath = tableView.indexPathForSelectedRow
              detailVC.myTask = tasks[indexPath!.row]
          }
      // Pass the selected object to the new view controller.

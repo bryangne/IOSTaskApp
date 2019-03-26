@@ -10,6 +10,8 @@
 		7BECFCEA222E44F7005DEBB5 /* DayTaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BECFCE9222E44F7005DEBB5 /* DayTaskTableViewController.swift */; };
 		7BECFCEC222E4BE4005DEBB5 /* DayTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BECFCEB222E4BE4005DEBB5 /* DayTaskTableViewCell.swift */; };
 		7BECFCEE222E5596005DEBB5 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BECFCED222E5596005DEBB5 /* AddTaskViewController.swift */; };
+		896712B6224ACD85005A3309 /* LaterTaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896712B5224ACD85005A3309 /* LaterTaskTableViewController.swift */; };
+		896712B8224ACE36005A3309 /* LaterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896712B7224ACE36005A3309 /* LaterTableViewCell.swift */; };
 		C9242B6F2225FF130028E43D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9242B6E2225FF130028E43D /* AppDelegate.swift */; };
 		C9242B742225FF130028E43D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9242B722225FF130028E43D /* Main.storyboard */; };
 		C9242B772225FF130028E43D /* TaskerApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9242B752225FF130028E43D /* TaskerApp.xcdatamodeld */; };
@@ -45,6 +47,8 @@
 		7BECFCE9222E44F7005DEBB5 /* DayTaskTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTaskTableViewController.swift; sourceTree = "<group>"; };
 		7BECFCEB222E4BE4005DEBB5 /* DayTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTaskTableViewCell.swift; sourceTree = "<group>"; };
 		7BECFCED222E5596005DEBB5 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
+		896712B5224ACD85005A3309 /* LaterTaskTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaterTaskTableViewController.swift; sourceTree = "<group>"; };
+		896712B7224ACE36005A3309 /* LaterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaterTableViewCell.swift; sourceTree = "<group>"; };
 		C9242B6B2225FF130028E43D /* TaskerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9242B6E2225FF130028E43D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9242B732225FF130028E43D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -90,6 +94,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		896712B4224ACD30005A3309 /* Later */ = {
+			isa = PBXGroup;
+			children = (
+				896712B5224ACD85005A3309 /* LaterTaskTableViewController.swift */,
+				896712B7224ACE36005A3309 /* LaterTableViewCell.swift */,
+			);
+			path = Later;
+			sourceTree = "<group>";
+		};
 		C9242B622225FF130028E43D = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +126,7 @@
 		C9242B6D2225FF130028E43D /* TaskerApp */ = {
 			isa = PBXGroup;
 			children = (
+				896712B4224ACD30005A3309 /* Later */,
 				C9A168D42249A13F00AEFCB6 /* Week */,
 				C9A168D32249A12600AEFCB6 /* Day */,
 				C9242B6E2225FF130028E43D /* AppDelegate.swift */,
@@ -304,6 +318,8 @@
 				7BECFCEE222E5596005DEBB5 /* AddTaskViewController.swift in Sources */,
 				C9A168D02249906E00AEFCB6 /* TaskTableViewController.swift in Sources */,
 				C9A168CE22498DF800AEFCB6 /* WeekTaskTableViewController.swift in Sources */,
+				896712B6224ACD85005A3309 /* LaterTaskTableViewController.swift in Sources */,
+				896712B8224ACE36005A3309 /* LaterTableViewCell.swift in Sources */,
 				C998DB8C223856A100208F23 /* TaskDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

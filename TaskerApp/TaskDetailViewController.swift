@@ -15,6 +15,8 @@ class TaskDetailViewController: UIViewController {
     
     // MARK: Variables
     var myTask: NSManagedObject?
+    var myTitle: String?
+    var myDetail: String?
     
     // MARK: Actions
     @IBAction func completedButtonAction(_ sender: UIButton) {
@@ -33,10 +35,14 @@ class TaskDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        let myTitle = myTask?.value(forKey: "title") as? String
+        myTitle = myTask?.value(forKey: "title") as? String
         titleLabel.text = myTitle
-        let myDetail = myTask?.value(forKey: "details") as? String
+        myDetail = myTask?.value(forKey: "details") as? String
         detailLabel.text = myDetail
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
     }
     
 
