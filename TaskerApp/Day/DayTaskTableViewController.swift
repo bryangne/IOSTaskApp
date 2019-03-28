@@ -84,6 +84,29 @@ class DayTaskTableViewController: TaskTableViewController {
 
 
     // MARK: - Navigation
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        let indexPath = tableView.indexPathForSelectedRow
+        if segue.identifier == "showTaskDetail" {
+            let detailVC = segue.destination as! TaskDetailViewController
+            detailVC.myTask = tasks[indexPath!.row]
+        }
+        if segue.identifier == "showTaskAdd" {
+            let detailVC = segue.destination as! AddTaskViewController
+            detailVC.addButton.isHidden = false
+            detailVC.addButton.setTitle("Add", for: .normal)
+        }
+        if segue.identifier == "showTaskEdit" {
+            let detailVC = segue.destination as! AddTaskViewController
+            let theTask = tasks[indexPath!.row]
+            detailVC.addButton.isHidden = false
+            detailVC.addButton.setTitle("Edit", for: .normal)
+            detailVC.descText.text = theTask.value(forKey: "title") as? String
+            detailVC.detailText.text = theTask.value(forKey: "details") as? String
+            let duedate = theTask.value(forKey: "due") as? Int
+            detailVC.dueDatePicker.selectedRow(inComponent: duedate ?? 0)
+        }
+        // Pass the selected object to the new view controller.
+    }
     // In a storyboard-based application, you will often want to do a little preparation before navigation
 }

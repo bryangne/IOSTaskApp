@@ -8,13 +8,14 @@
 import UIKit
 import CoreData
 
-class TaskTableViewController: UITableViewController {
 
+class TaskTableViewController: UITableViewController {
+    
+    // MARK: Variables
     var tasks: [NSManagedObject] = []
     var selectedTask: NSManagedObject?
     var daySelect = "Today"
     var completedSelect = false
-    //MARK: Outlets
     
     // MARK: My Functions
     func clearData() {
@@ -34,10 +35,8 @@ class TaskTableViewController: UITableViewController {
         let myDelegate = UIApplication.shared.delegate as? AppDelegate
         let context = myDelegate?.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Task")
+        fetchRequest.predicate = setFetchPredicate()
         // Fetch the data based on which tab was selected
-        let datePredicate = NSPredicate(format: "due == %@", daySelect)
-        let compPredicate = NSPredicate(format: "completed == false")
-        fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [datePredicate, compPredicate])
         do {
             tasks = try (context?.fetch(fetchRequest))!
         } catch let error as NSError {
@@ -46,6 +45,15 @@ class TaskTableViewController: UITableViewController {
         
         self.tableView.reloadData()
     }
+    
+    func setFetchPredicate() -> NSCompoundPredicate {
+        let datePredicate = NSPredicate(format: "due == %@", daySelect)
+        let compPredicate = NSPredicate(format: "completed == \(completedSelect)")
+        let viewDataPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [datePredicate, compPredicate])
+        return (viewDataPredicate)
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,15 +118,20 @@ class TaskTableViewController: UITableViewController {
      */
 
     // MARK: - Navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
         let indexPath = tableView.indexPathForSelectedRow
-         if segue.identifier == "showTaskDetail" {
-             let detailVC = segue.destination as! TaskDetailViewController
-             detailVC.myTask = tasks[indexPath!.row]
-         }
-     // Pass the selected object to the new view controller.
-     }
+        if segue.identifier == "showTaskDetail" {
+            let detailVC = segue.destination as! TaskDetailViewController
+            detailVC.myTask = tasks[indexPath!.row]
+        }
+        if segue.identifier == "showTaskAdd" {
+            let detailVC = segue.destination as! AddTaskViewController
+            detailVC.addButton.isHidden = false
+            detailVC.addButton.setTitle("Add", for: .normal)
+        }
+        // Pass the selected object to the new view controller.
+    }
 
 
 }

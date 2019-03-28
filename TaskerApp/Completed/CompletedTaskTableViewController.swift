@@ -20,6 +20,13 @@ class CompletedTaskTableViewController: TaskTableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+    // MARK: My Functions
+    override func setFetchPredicate() -> NSCompoundPredicate {
+        let compPredicate = NSPredicate(format: "completed == \(completedSelect)")
+        let viewDataPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [compPredicate])
+        return (viewDataPredicate)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         let myDelegate = UIApplication.shared.delegate as? AppDelegate
         let context = myDelegate?.persistentContainer.viewContext
@@ -80,14 +87,20 @@ class CompletedTaskTableViewController: TaskTableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
+        let indexPath = tableView.indexPathForSelectedRow
+        if segue.identifier == "showCompDetail" {
+            let detailVC = segue.destination as! TaskDetailViewController
+            detailVC.myTask = tasks[indexPath!.row]
+            detailVC.hideCompleted = true
+        }
         // Pass the selected object to the new view controller.
     }
-    */
+ 
 
 }

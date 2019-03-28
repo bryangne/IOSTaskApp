@@ -12,13 +12,19 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate, UIPickerView
     // MARK: Variables
     var myDueDate: String?
     var dueDates: [String] = [String]()
+    var myDetail : String?
+    var myTitle: String?
+    var showAddButton: Bool = true
+    
     // MARK: Outlets
     @IBOutlet weak var descText: UITextField!
     @IBOutlet weak var detailText: UITextView!
     @IBOutlet weak var dueDatePicker: UIPickerView!
+    @IBOutlet weak var addButton: UIButton!
+    
     
     // MARK: Actions
-    @IBAction func addButton(_ sender: UIButton) {
+    @IBAction func addButtonAction(_ sender: UIButton) {
         let myDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = myDelegate.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "Task", in: context)!
@@ -43,7 +49,9 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate, UIPickerView
         self.dueDatePicker.delegate = self as? UIPickerViewDelegate
         self.dueDatePicker.dataSource = self as? UIPickerViewDataSource
         dueDates = ["Today", "This Week", "Later"]
-        myDueDate = "Today"
+        descText.text = myTitle
+        detailText.text = myDetail
+        
         /*
         let myDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = myDelegate.persistentContainer.viewContext
@@ -58,6 +66,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate, UIPickerView
          */
         // Do any additional setup after loading the view.
     }
+    
     
     func textFieldShouldReturn(_ scoreText: UITextField) -> Bool {
         self.view.endEditing(true)
