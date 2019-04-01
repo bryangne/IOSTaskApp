@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pmW-Rs-k90">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pmW-Rs-k90">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -56,7 +56,7 @@
                             <barButtonItem systemItem="add" id="afx-Nn-1qM">
                                 <connections>
                                     <action selector="addTask:" destination="VtP-D7-y8V" id="5ak-a2-5J8"/>
-                                    <segue destination="OLS-dz-kPw" kind="show" id="8DQ-a0-ueR"/>
+                                    <segue destination="OLS-dz-kPw" kind="show" identifier="showTaskAdd" id="8DQ-a0-ueR"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem style="plain" id="0q4-iG-qyn">
@@ -120,7 +120,7 @@
                     <navigationItem key="navigationItem" title="Weekly" id="DOy-jc-fYC">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="tsf-KK-Re3">
                             <connections>
-                                <segue destination="OLS-dz-kPw" kind="show" id="4Pb-uN-Gq3"/>
+                                <segue destination="OLS-dz-kPw" kind="show" identifier="showTaskAdd" id="4Pb-uN-Gq3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -142,18 +142,41 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWf-8g-i6B">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="24"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
+                                        </accessibility>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="Xhh-6Q-ecO"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Detail" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="c29-Nm-b3V">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wjI-cE-4zv">
                                         <rect key="frame" x="0.0" y="24" width="343" height="462"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJI-px-r09">
+                                                <rect key="frame" x="0.0" y="16" width="343" height="20.5"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
+                                                </accessibility>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
+                                        <constraints>
+                                            <constraint firstItem="qJI-px-r09" firstAttribute="top" secondItem="wjI-cE-4zv" secondAttribute="top" constant="16" id="Q3J-56-ZUR"/>
+                                            <constraint firstItem="qJI-px-r09" firstAttribute="leading" secondItem="wjI-cE-4zv" secondAttribute="leading" id="bpv-9m-uLu"/>
+                                            <constraint firstAttribute="trailing" secondItem="qJI-px-r09" secondAttribute="trailing" id="s2D-RX-NIn"/>
+                                        </constraints>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E7b-qa-XJh">
                                         <rect key="frame" x="0.0" y="486" width="343" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="GGB-np-YNb"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Completed"/>
                                         <connections>
@@ -161,6 +184,12 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="E7b-qa-XJh" firstAttribute="leading" secondItem="DXc-wo-hBW" secondAttribute="leading" id="0wn-gv-Nea"/>
+                                    <constraint firstItem="qWf-8g-i6B" firstAttribute="leading" secondItem="DXc-wo-hBW" secondAttribute="leading" id="3aS-fB-DAm"/>
+                                    <constraint firstAttribute="trailing" secondItem="E7b-qa-XJh" secondAttribute="trailing" id="riL-Hu-3TI"/>
+                                    <constraint firstAttribute="trailing" secondItem="qWf-8g-i6B" secondAttribute="trailing" id="xkF-Nc-VyF"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -181,7 +210,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="completedButton" destination="E7b-qa-XJh" id="YT2-op-RS0"/>
-                        <outlet property="detailLabel" destination="c29-Nm-b3V" id="h5U-zM-Olm"/>
+                        <outlet property="detailLabel" destination="qJI-px-r09" id="aOf-HN-8vQ"/>
                         <outlet property="titleLabel" destination="qWf-8g-i6B" id="DXx-qw-gMR"/>
                     </connections>
                 </viewController>
@@ -282,6 +311,7 @@
                         <outlet property="descText" destination="d4p-Mi-7on" id="2yD-ma-45T"/>
                         <outlet property="detailText" destination="zjI-VY-69g" id="9le-KZ-ROa"/>
                         <outlet property="dueDatePicker" destination="54p-5X-O7e" id="Aq9-kM-7Xo"/>
+                        <outlet property="titleLabel" destination="DzB-ED-YBF" id="yyL-Hp-ivH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gX3-fe-chB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -332,7 +362,7 @@
                     <navigationItem key="navigationItem" title="Later" id="4rm-Qv-hVp">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="6w1-Sy-C4f">
                             <connections>
-                                <segue destination="OLS-dz-kPw" kind="show" id="f8g-qS-sdE"/>
+                                <segue destination="OLS-dz-kPw" kind="show" identifier="showTaskAdd" id="f8g-qS-sdE"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -487,7 +517,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Awf-SW-1DQ"/>
-        <segue reference="jCs-3W-IFa"/>
+        <segue reference="4Pb-uN-Gq3"/>
+        <segue reference="e7N-5M-hzK"/>
     </inferredMetricsTieBreakers>
 </document>

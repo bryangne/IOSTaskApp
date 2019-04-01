@@ -11,7 +11,7 @@ import CoreData
 class TaskDetailViewController: UIViewController {
     // MARK: Outlets
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var detailLabel: UITextView!
+    @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var completedButton: UIButton!
     
     // MARK: Variables
@@ -23,6 +23,10 @@ class TaskDetailViewController: UIViewController {
     // MARK: Actions
     @IBAction func completedButtonAction(_ sender: UIButton) {
         // Set the task to completed
+        completeTask()
+    }
+    
+    func completeTask() {
         let myDelegate = UIApplication.shared.delegate as? AppDelegate
         let myContext = myDelegate?.persistentContainer.viewContext
         myTask?.setValue(true, forKey: "completed")
@@ -38,15 +42,15 @@ class TaskDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        detailLabel.sizeToFit()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         myTitle = myTask?.value(forKey: "title") as? String
         titleLabel.text = myTitle
         myDetail = myTask?.value(forKey: "details") as? String
         detailLabel.text = myDetail
         completedButton.isHidden = hideCompleted
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
     }
     
 
@@ -62,7 +66,9 @@ class TaskDetailViewController: UIViewController {
 //            detailVC.addButton.setTitle("Edit", for: .normal)
             detailVC.myTitle = self.myTitle
             detailVC.myDetail = self.myDetail
-            
+            detailVC.editMode = true
+            detailVC.myTask = self.myTask
+            detailVC.myDueDate = myTask?.value(forKey: "due") as? String
         }
     }
 

@@ -14,7 +14,7 @@ class TaskTableViewController: UITableViewController {
     // MARK: Variables
     var tasks: [NSManagedObject] = []
     var selectedTask: NSManagedObject?
-    var daySelect = "Today"
+    var daySelect: String?
     var completedSelect = false
     
     // MARK: My Functions
@@ -47,7 +47,7 @@ class TaskTableViewController: UITableViewController {
     }
     
     func setFetchPredicate() -> NSCompoundPredicate {
-        let datePredicate = NSPredicate(format: "due == %@", daySelect)
+        let datePredicate = NSPredicate(format: "due == %@", daySelect!)
         let compPredicate = NSPredicate(format: "completed == \(completedSelect)")
         let viewDataPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [datePredicate, compPredicate])
         return (viewDataPredicate)
@@ -127,8 +127,9 @@ class TaskTableViewController: UITableViewController {
         }
         if segue.identifier == "showTaskAdd" {
             let detailVC = segue.destination as! AddTaskViewController
-            detailVC.addButton.isHidden = false
-            detailVC.addButton.setTitle("Add", for: .normal)
+            detailVC.editMode = false
+            detailVC.myDueDate = daySelect
+            print("segue \(daySelect!)")
         }
         // Pass the selected object to the new view controller.
     }

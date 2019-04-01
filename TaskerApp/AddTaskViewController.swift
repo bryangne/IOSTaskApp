@@ -15,16 +15,28 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate, UIPickerView
     var myDetail : String?
     var myTitle: String?
     var showAddButton: Bool = true
+    var editMode: Bool = false
+    var myTask: NSManagedObject?
     
     // MARK: Outlets
     @IBOutlet weak var descText: UITextField!
     @IBOutlet weak var detailText: UITextView!
     @IBOutlet weak var dueDatePicker: UIPickerView!
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
     
     
     // MARK: Actions
     @IBAction func addButtonAction(_ sender: UIButton) {
+        if (!editMode) {
+            addTask()
+        }
+        else {
+            editTask()
+        }
+    }
+    
+    func addTask() {
         let myDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = myDelegate.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "Task", in: context)!
@@ -42,6 +54,19 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate, UIPickerView
         _ = navigationController?.popViewController(animated: true)
     }
     
+    func editTask() {
+        let myDelegate = UIApplication.shared.delegate as? AppDelegate
+        let myContext = myDelegate?.persistentContainer.viewContext
+        myTask?.setValue(descText.text, forKey: "title")
+        myTask?.setValue(detailText.text, forKey: "details")
+        do {
+            try myContext?.save()
+        } catch {
+            print("Error! Cant save!")
+        }
+        _ = navigationController?.popViewController(animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         descText.delegate = self as? UITextFieldDelegate
@@ -49,6 +74,18 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate, UIPickerView
         self.dueDatePicker.delegate = self as? UIPickerViewDelegate
         self.dueDatePicker.dataSource = self as? UIPickerViewDataSource
         dueDates = ["Today", "This Week", "Later"]
+        titleLabel.text = "Add a Task"
+        addButton.setTitle("Add", for: .normal)
+        if (editMode) {
+            titleLabel.text = "Edit a Task"
+            addButton.setTitle("Edit", for: .normal)
+        }
+        let thisDueDate = myDueDate
+        for index in 0...dueDates.count-1 {
+            if (dueDates[index] == thisDueDate) {
+                dueDatePicker.selectRow(index, inComponent: 0, animated: false)
+            }
+        }
         descText.text = myTitle
         detailText.text = myDetail
         
