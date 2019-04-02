@@ -8,7 +8,7 @@
 import UIKit
 
 class loadCheckViewController: UIViewController {
-    var newDay: Bool = true
+    var newDay: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,12 +35,12 @@ class loadCheckViewController: UIViewController {
         let oldDate = UserDefaults.standard.object(forKey: "oldDate") as? Date
         if (oldDate == nil) {
             UserDefaults.standard.set(Date(), forKey: "oldDate")
-            print("No date yet")
+//            print("No date yet")
             return
         }
         if !Calendar.current.isDateInToday(oldDate!) {
-            UserDefaults.standard.set(Date(), forKey: "oldDate")
-            print("New day!")
+            
+//            print("New day!")
             newDay = true
         }
     }

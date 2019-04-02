@@ -8,7 +8,29 @@
 import UIKit
 
 class WeeklyMoveTableViewController: TaskTableViewController {
-
+    
+    var taskSelect: [Bool]?
+    
+    // MARK: Actions
+    @IBAction func nextButtonAction(_ sender: UIBarButtonItem) {
+        let myDelegate = UIApplication.shared.delegate as? AppDelegate
+        let myContext = myDelegate?.persistentContainer.viewContext
+        print(taskSelect!)
+        for i in 0...taskSelect!.count-1 {
+            print(i)
+            if taskSelect![i] == true {
+                tasks[i].setValue("Today", forKey: "due")
+            }
+        }
+        do {
+            try myContext?.save()
+        } catch {
+            print("Error! Cant save!")
+        }
+        UserDefaults.standard.set(Date(), forKey: "oldDate")
+        performSegue(withIdentifier: "showAfterSelect", sender: self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         daySelect = "This Week"
@@ -18,6 +40,11 @@ class WeeklyMoveTableViewController: TaskTableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        taskSelect = Array(repeating: false, count: tasks.count)
     }
 
     // MARK: - Table view data source
@@ -29,8 +56,18 @@ class WeeklyMoveTableViewController: TaskTableViewController {
         cell.layoutMargins = UIEdgeInsets.zero
         let text = tasks[indexPath.row].value(forKeyPath: "title") as? String
         cell.taskLabel.text = text
-        print(indexPath.row)
+        if taskSelect![indexPath.row] == true {
+            cell.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+        }
+        else {
+            cell.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        }
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        taskSelect![indexPath.row] = !taskSelect![indexPath.row]
+        self.tableView.reloadData()
     }
     
     /*

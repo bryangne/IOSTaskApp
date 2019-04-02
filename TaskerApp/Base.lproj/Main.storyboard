@@ -223,7 +223,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tNM-ey-Z1z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3628" y="547"/>
+            <point key="canvasLocation" x="3548" y="1704"/>
         </scene>
         <!--Add Task View Controller-->
         <scene sceneID="yb9-lm-NCu">
@@ -323,7 +323,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gX3-fe-chB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4567.1999999999998" y="-268.51574212893553"/>
+            <point key="canvasLocation" x="3548" y="690"/>
         </scene>
         <!--Later-->
         <scene sceneID="WoY-TX-Kh9">
@@ -430,20 +430,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have completed x tasks yesterday!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5IR-fd-rXc">
-                                <rect key="frame" x="16" y="166" width="343" height="20.5"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
-                                </accessibility>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please choose which tasks that you want to complete today." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9U-NY-8wW">
-                                <rect key="frame" x="16" y="250.5" width="343" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="343" id="KpP-XB-9p0"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please choose which tasks from the &quot;Weekly&quot; list you want to complete." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9U-NY-8wW">
+                                <rect key="frame" x="16" y="315.5" width="343" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -453,11 +441,10 @@
                         <constraints>
                             <constraint firstItem="Qsh-9o-JkP" firstAttribute="trailing" secondItem="Ba4-2y-wtt" secondAttribute="trailing" constant="16" id="01G-xh-TjP"/>
                             <constraint firstItem="Ba4-2y-wtt" firstAttribute="leading" secondItem="Qsh-9o-JkP" secondAttribute="leading" constant="16" id="1dg-EN-dyR"/>
-                            <constraint firstItem="i9U-NY-8wW" firstAttribute="top" secondItem="5IR-fd-rXc" secondAttribute="bottom" constant="64" id="4vZ-ez-Sgk"/>
+                            <constraint firstAttribute="trailing" secondItem="i9U-NY-8wW" secondAttribute="trailing" constant="16" id="39N-Uw-dtf"/>
+                            <constraint firstItem="i9U-NY-8wW" firstAttribute="leading" secondItem="mp8-Zy-AJy" secondAttribute="leading" constant="16" id="Ijo-is-SEM"/>
                             <constraint firstItem="Ba4-2y-wtt" firstAttribute="top" secondItem="Qsh-9o-JkP" secondAttribute="top" constant="16" id="O3T-bI-B6a"/>
-                            <constraint firstItem="5IR-fd-rXc" firstAttribute="top" secondItem="Ba4-2y-wtt" secondAttribute="bottom" constant="64" id="SIo-pa-nz3"/>
-                            <constraint firstItem="5IR-fd-rXc" firstAttribute="leading" secondItem="Qsh-9o-JkP" secondAttribute="leading" constant="16" id="YC7-xu-iIf"/>
-                            <constraint firstItem="Qsh-9o-JkP" firstAttribute="trailing" secondItem="5IR-fd-rXc" secondAttribute="trailing" constant="16" id="pFW-6y-yU0"/>
+                            <constraint firstItem="i9U-NY-8wW" firstAttribute="centerY" secondItem="mp8-Zy-AJy" secondAttribute="centerY" id="yiz-Lt-3Ij"/>
                             <constraint firstItem="i9U-NY-8wW" firstAttribute="centerX" secondItem="mp8-Zy-AJy" secondAttribute="centerX" id="zLs-hs-fxE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Qsh-9o-JkP"/>
@@ -514,10 +501,20 @@
                             <outlet property="delegate" destination="U6P-TT-VJn" id="X7Y-Ns-eK1"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="R37-ch-niH">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="YEV-1K-6gH">
+                            <connections>
+                                <action selector="nextButtonAction:" destination="U6P-TT-VJn" id="iEa-HT-5zM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="pmW-Rs-k90" kind="showDetail" identifier="showAfterSelect" id="qQL-oe-3x0"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ADH-Ep-XSu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2487.1999999999998" y="-642.72863568215894"/>
+            <point key="canvasLocation" x="2316" y="-644"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="FJx-hx-gqo">
@@ -664,7 +661,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4Pb-uN-Gq3"/>
-        <segue reference="yeO-jS-pNB"/>
+        <segue reference="HxK-To-mqf"/>
+        <segue reference="8DQ-a0-ueR"/>
+        <segue reference="e7N-5M-hzK"/>
     </inferredMetricsTieBreakers>
 </document>
