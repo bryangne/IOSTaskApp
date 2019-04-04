@@ -14,6 +14,9 @@
 		896712B8224ACE36005A3309 /* LaterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896712B7224ACE36005A3309 /* LaterTableViewCell.swift */; };
 		896712BB224AE4EE005A3309 /* CompletedTaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896712BA224AE4EE005A3309 /* CompletedTaskTableViewController.swift */; };
 		896712BD224AE66F005A3309 /* CompletedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896712BC224AE66F005A3309 /* CompletedTableViewCell.swift */; };
+		89ADB5092252BEAF006C80B4 /* loadCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ADB5082252BEAF006C80B4 /* loadCheckViewController.swift */; };
+		89ADB50B22557D41006C80B4 /* WeeklyMoveTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ADB50A22557D41006C80B4 /* WeeklyMoveTableViewController.swift */; };
+		89ADB50D2255800F006C80B4 /* WeeklyMoveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ADB50C2255800F006C80B4 /* WeeklyMoveTableViewCell.swift */; };
 		C9242B6F2225FF130028E43D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9242B6E2225FF130028E43D /* AppDelegate.swift */; };
 		C9242B742225FF130028E43D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9242B722225FF130028E43D /* Main.storyboard */; };
 		C9242B772225FF130028E43D /* TaskerApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9242B752225FF130028E43D /* TaskerApp.xcdatamodeld */; };
@@ -53,6 +56,9 @@
 		896712B7224ACE36005A3309 /* LaterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaterTableViewCell.swift; sourceTree = "<group>"; };
 		896712BA224AE4EE005A3309 /* CompletedTaskTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTaskTableViewController.swift; sourceTree = "<group>"; };
 		896712BC224AE66F005A3309 /* CompletedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTableViewCell.swift; sourceTree = "<group>"; };
+		89ADB5082252BEAF006C80B4 /* loadCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loadCheckViewController.swift; sourceTree = "<group>"; };
+		89ADB50A22557D41006C80B4 /* WeeklyMoveTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyMoveTableViewController.swift; sourceTree = "<group>"; };
+		89ADB50C2255800F006C80B4 /* WeeklyMoveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyMoveTableViewCell.swift; sourceTree = "<group>"; };
 		C9242B6B2225FF130028E43D /* TaskerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9242B6E2225FF130028E43D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9242B732225FF130028E43D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -116,6 +122,16 @@
 			path = Completed;
 			sourceTree = "<group>";
 		};
+		89ADB5072252BE49006C80B4 /* LaunchMenu */ = {
+			isa = PBXGroup;
+			children = (
+				89ADB5082252BEAF006C80B4 /* loadCheckViewController.swift */,
+				89ADB50A22557D41006C80B4 /* WeeklyMoveTableViewController.swift */,
+				89ADB50C2255800F006C80B4 /* WeeklyMoveTableViewCell.swift */,
+			);
+			path = LaunchMenu;
+			sourceTree = "<group>";
+		};
 		C9242B622225FF130028E43D = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +155,7 @@
 		C9242B6D2225FF130028E43D /* TaskerApp */ = {
 			isa = PBXGroup;
 			children = (
+				89ADB5072252BE49006C80B4 /* LaunchMenu */,
 				896712B9224AE26B005A3309 /* Completed */,
 				896712B4224ACD30005A3309 /* Later */,
 				C9A168D42249A13F00AEFCB6 /* Week */,
@@ -326,7 +343,9 @@
 				C9242B772225FF130028E43D /* TaskerApp.xcdatamodeld in Sources */,
 				7BECFCEA222E44F7005DEBB5 /* DayTaskTableViewController.swift in Sources */,
 				896712BB224AE4EE005A3309 /* CompletedTaskTableViewController.swift in Sources */,
+				89ADB5092252BEAF006C80B4 /* loadCheckViewController.swift in Sources */,
 				C9242B6F2225FF130028E43D /* AppDelegate.swift in Sources */,
+				89ADB50B22557D41006C80B4 /* WeeklyMoveTableViewController.swift in Sources */,
 				C9A168D22249A11000AEFCB6 /* WeekTableViewCell.swift in Sources */,
 				7BECFCEC222E4BE4005DEBB5 /* DayTaskTableViewCell.swift in Sources */,
 				C9A168CC2249886B00AEFCB6 /* TabBarController.swift in Sources */,
@@ -337,6 +356,7 @@
 				896712B6224ACD85005A3309 /* LaterTaskTableViewController.swift in Sources */,
 				896712B8224ACE36005A3309 /* LaterTableViewCell.swift in Sources */,
 				C998DB8C223856A100208F23 /* TaskDetailViewController.swift in Sources */,
+				89ADB50D2255800F006C80B4 /* WeeklyMoveTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

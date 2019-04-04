@@ -13,6 +13,7 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var completedButton: UIButton!
+    @IBOutlet weak var dueDateLabel: UILabel!
     
     // MARK: Variables
     var myTask: NSManagedObject?
@@ -50,6 +51,8 @@ class TaskDetailViewController: UIViewController {
         titleLabel.text = myTitle
         myDetail = myTask?.value(forKey: "details") as? String
         detailLabel.text = myDetail
+        let theDueDate = myTask?.value(forKey: "due") as? String
+        dueDateLabel.text = "Due: " + theDueDate!
         completedButton.isHidden = hideCompleted
     }
     

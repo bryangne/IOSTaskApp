@@ -59,6 +59,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate, UIPickerView
         let myContext = myDelegate?.persistentContainer.viewContext
         myTask?.setValue(descText.text, forKey: "title")
         myTask?.setValue(detailText.text, forKey: "details")
+        myTask?.setValue(myDueDate, forKey: "due")
         do {
             try myContext?.save()
         } catch {
